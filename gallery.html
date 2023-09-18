@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALLERY</title>
+
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<style>
+    .container-fluid .navbar #navbarText ul li {
+
+        margin-left: 30px;
+
+        font-size: 15px;
+        font-weight: bold;
+
+    }
+
+    .container-fluid .navbar #navbarText ul li a:hover {
+
+        color: red;
+    }
+
+
+    section .container .card ul li {
+        font-size: 13px;
+        margin-top: 10px;
+        list-style: none;
+
+    }
+
+    section .container .card ul li::before {
+
+        content: "\2022";
+        color: red;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+
+        margin-left: -1em;
+    }
+
+    .carousel-indicators .active {
+    background-color: red;
+}
+.carousel-indicators li {
+    
+    background-color: #FCF3BF;
+}
+
+
+
+
+
+section .container .popup-imag{
+
+    position: fixed;
+    top:0; left: 0;
+    background: rgba(0,0,0,.9, green, blue, alpha);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+section .container .popup-imag span {
+    position: absolute;
+    top: 0; right: 10px;
+    font-size:60px ;
+    font-weight: bolder;
+    color: red;
+    cursor: pointer;
+    z-index: 100;
+}
+
+section .container .popup-imag img{
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #fff;
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+
+}
+
+
+
+
+
+</style>
+
+<body>
+    <div style="box-shadow: 0 0 13px rgba(0,0,0,.2);">
+        <div class="header bg-light ">
+          <div class="container" style="margin-top: 2px;">
+            <div class="row">
+              <div class="col-sm-4 ">
+    
+                <a href="" class="btn btn-warning btn-sm "
+                  style="font-weight: bold;  font-size: 14px;  font-size: 10px; border: 1px solid silver; color: brown; margin-bottom: 3px;">
+                  English</a>
+    
+              </div>
+              <div class="col-sm-4 ">
+                <a href="https://onlineexams.co/" style="font-weight: bold;  font-size: 14px; color: red;  ">Online Test</a>
+    
+                <a href="" style="font-weight: bold;  font-size: 14px; margin-left: 30px; "> Enquiry</a>
+    
+              </div>
+              <div class="col-sm-4">
+    
+                <a href=""><i class="fa-brands fa-facebook fa-sm " style="color: #783030;"></i></a>
+                <a href="" style="margin-left: 10px;"><i class="fa-brands fa-instagram fa-sm"
+                    style="color: #783030;"></i></a>
+                <a href="" style="margin-left: 10px;"><i class="fa-brands fa-google-plus fa-sm"
+                    style="color: #783030;"></i></a>
+                <a href="" style="margin-left: 10px;"><i class="fa-brands fa-linkedin-in fa-sm"
+                    style="color: #783030;"></i></a>
+                <a href="" style="margin-left: 10px;"><i class="fa-brands fa-twitter" style="color: #783030;"></i></a>
+    
+              </div>
+            </div>
+          </div>
+    
+        </div>
+    
+        <div class="container-fluid ">
+          <nav class="navbar navbar-expand-lg navbar-light  ">
+            <a class="navbar-brand" href="#"><img src="img/logo2.jpg" alt="" style="width: 200px; height: 50px; "></a>
+    
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText" >
+              <ul class="navbar-nav ml-auto" id="ulid" >
+    
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html"><span style="color: red;" > HOME </span></a>
+                </li>
+                <li class="nav-item active ">
+                  <a class="nav-link" href="about.html"><span > ABOUT US </span></a>
+                </li>
+                <li class="nav-item active ">
+                  <a class="nav-link" href="services.html"><span > SERVICES </span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="Achievements.html"><span >ACHIEVEMENTS  </span></a>
+                </li>
+             
+                <li class="nav-item active "> 
+                  <a class="nav-link" href="gallery.html"><span > GALLERY</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="contact.html"><span > CONTACT US</span></a>
+                </li>
+               
+                
+    
+                
+    
+    
+                
+              </ul>
+    
+    
+    
+            </div>
+            <img src="img/AESPL.gif" alt="" style="width: 50px; height: 45px; border-radius: 50%;">
+          </nav>
+        </div>
+    
+    
+      </div>
+
+    <section>
+        <div class="header" style="background-color: #EEF6F8; height: auto; width: 100%;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-7" style="margin-top: 60px;">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+
+                            <div class="col-lg-8" style="margin-top: 100px; ">
+                                <h2> <b style="color: #ff5421; ">GALLERY</b></h2>
+                                <p style="font-size: 20px;"><a href="index.html" class="btn " style="font-size: 20px;  " > Home</a>\ &nbsp;<span >Gallery</span></p>
+
+                            </div>
+                            <div class="col-lg-2"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5">
+                        <span><img class="img-fluid " src="img/103690.jpg" alt=""
+                                style="border-radius:60%; padding: 10px; margin-left: 14px; overflow: hidden; border: 1px solid #ff5421; box-shadow: 0px 3px 10px rgba(34, 35, 58, 0.2); margin-bottom: 10px; margin-top: 10px; border-style: dotted; margin-left: 5px;"></span>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </section>
+
+   
+
+
+
+    <section style="padding: 50px;  background: linear-gradient(147deg, #cbaf6fec 0%, #1c3724 74%); border-top: 1px solid black ; padding-bottom: 100px;" > 
+        <div class="container">
+            <h2 style=" margin-bottom: 40px; text-align: center;"> <b style="color: #FAFAF7; font-size: 40px;">GALLERY</b></h2>
+                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card" >
+                            <img src="img/army1.jpg" onclick="imgclick()"  class="responsive" alt=""  style="border-radius: 2px;" >
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army1.jpg" alt="" style="border-radius: 2px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army1.jpg" alt="" style="border-radius: 2px;">
+                        </div>
+                    </div>
+                </div>
+                
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army3.jpg" alt="" style="border-radius: 2px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army3.jpg" alt="" style="border-radius: 2px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army3.jpg" alt="" style="border-radius: 2px;">
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army4.jpg" alt="" style="border-radius: 2px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army4.jpg" alt="" style="border-radius: 2px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <img src="img/army4.jpg" alt=""style="border-radius: 2px;">
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+           
+          </div>
+      
+
+      
+
+     
+  
+
+    </section>
+
+
+
+ 
+
+
+
+    
+
+
+
+
+    <footer class="secondary-bg dark-footer"
+    style="    background: #ff5421 !important; border-top: 5px solid #FF2400 !important;  background: url(img/footer.png),#192c12c8!important;">
+    
+    <div class="container " style="padding:5px; text-align: center; margin-top: 20px; ">
+        
+        <div class="row">
+            <div class="col-sm-12 ">
+
+                <ul style="list-style: none; display: inline-flex; ">
+
+                    <li> <a href="index.html" class="btn" style=" font-size: 15px; color: white; border:none;       font-weight: 500;
+
+      ">Home </a></li>
+                    <li><a href="about.html" class="btn" style=" font-size: 15px; color: white;         font-weight: 500;
+
+      ">About us</a></li>
+                    <li><a href="services.html" class="btn" style=" font-size: 15px; color: white;      font-weight: 500;
+
+      "> Services</a></li>
+                    <li><a href="Achievements.html" class="btn" style=" font-size: 15px; color: white;      font-weight: 500;
+
+      ">Achievements</a></li>
+                  
+                    <li><a href="gallery.html" class="btn" style=" font-size: 15px; color: white;      font-weight: 500;
+
+      ">Gallery</a></li>
+                    <li><a href="contact.html" class="btn" style=" font-size: 15px; color: white;       font-weight: 500;
+
+      ">Contact us</a></li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 30px;">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="col-sm-12">
+                    <h3><a href="job.html" style="color: white;font-size: 18px; ">Job@DCA</a></h3>
+
+                </div>
+                <div class="col-sm-12">
+                    <h3><a href="online.html" style="color: white;font-size: 18px; ">Online Application</a></h3>
+
+                </div>
+                <div class="col-sm-12">
+                    <h3><a href="Feedback.html" style="color: white;font-size: 18px; ">Feedback</a></h3>
+
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div>
+                    <p style="background-color: #fff; border-radius: 50%; width: 24px;"><i class="fa-solid fa-phone"
+                            style="margin-left: 5px;"></i></p>
+                    <p class="pclass" style="color: #fff; margin-left: 50px; margin-top: -40px;">
+
+                        Student Helpline :
+                        <br>
+                        <span style="font-size: 13px;">9235000000, 9005400000, 9453400000, 9235657654</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+
+                <div>
+                    <p style="background-color: #fff; border-radius: 50%; width: 26px;"><i
+                            class="fa-solid fa-house fa-xs" style="margin-left: 6px;"></i></p>
+                    <p class="pclass" style="color: #fff; margin-left: 50px; margin-top: -40px;">
+                        Correspondence Address :
+                        <br>
+                        <span style="font-size: 13px;"> H-310, Indiralok, Krishna Nagar, Lucknow</span>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class=" text-lift p-3" style="color: #fff; margin-top: 30px; font-size: 20px;">
+                    © 2023 Copyright:
+                    <a class="text-white" href="">cloudhub24.com</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="text-right" style="margin-top: 30px;">
+                    <section class="mb-4">
+
+                        <a class="btn btn-outline-light btn-floating m-3"
+                            href="https://www.facebook.com/cloudhub24?mibextid=ZbWKwL" role="button"><i
+                                class="fab fa-facebook-f"></i></a>
+
+
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                class="fab fa-twitter"></i></a>
+
+
+
+
+
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                class="fab fa-instagram"></i></a>
+
+
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                                class="fab fa-linkedin-in"></i></a>
+
+
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
+
+
+
+</footer>
+
+
+
+
+</body>
+<script>
+document.querySelectorAll('.image-container img ').forEach(image =>{
+    image.onclick = () => {
+    
+
+    document.querySelector('.popup-imag').style.display = 'block';
+    document.querySelector('.popup-imag img').src = image.getAttribute('src');
+
+
+
+}
+});
+document.querySelector('.popup-imag').onclick = () => {
+    document.querySelector('.popup-imag img').style.display = 'none';
+}
+
+
+</script>
+</html>
