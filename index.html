@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AESPL</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<style>
+  .container-fluid .navbar #navbarText ul li {
+
+    margin-left: 30px;
+
+    font-size: 15px;
+    font-weight: bold;
+    
+  }
+
+  .container-fluid .navbar #navbarText ul li a:hover {
+
+    color: red;
+  }
+
+ 
+
+  .header1 {
+
+    padding-top: 200px;
+    padding-bottom: 70px;
+    background-image: url(img/header-bg-3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+
+
+
+
+  @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .header3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    font-family: 'Fira Sans', sans-serif;
+    background: linear-gradient(147deg, #f6b323 0%, #f23b26 74%);
+
+  }
+
+  .blog-card {
+    position: absolute;
+    height: 370px;
+    width: 95%;
+    max-width: 850px;
+    margin: auto;
+    border-radius: 25px;
+    background: white;
+    box-shadow: 0px 10px 50px rgba(252, 56, 56, .3);
+  }
+
+  .inner-part {
+    position: absolute;
+    display: flex;
+    height: 360px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 25px;
+  }
+
+  #imgTap:checked~.inner-part {
+    padding: 0;
+    transition: .1s ease-in;
+  }
+
+  .inner-part .img {
+    height: 260px;
+    width: 260px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px rgba(252, 56, 56, .1);
+  }
+
+  #imgTap:checked~.inner-part .img {
+    height: 370px;
+    width: 850px;
+    z-index: 99;
+    margin-top: 10px;
+    transition: .3s .2s ease-in;
+  }
+
+  .img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0;
+    transition: .6s;
+  }
+
+  #tap-1:checked~.inner-part .img-1,
+  #tap-2:checked~.inner-part .img-2,
+  #tap-3:checked~.inner-part .img-3 {
+    opacity: 1;
+    transition-delay: .2s;
+  }
+
+  .content {
+    padding: 0 20px 0 35px;
+    width: 530px;
+    margin-left: 50px;
+    opacity: 0;
+    transition: .6s;
+  }
+
+  #imgTap:checked~.inner-part .content {
+    display: none;
+  }
+
+  #tap-1:checked~.inner-part .content-1,
+  #tap-2:checked~.inner-part .content-2,
+  #tap-3:checked~.inner-part .content-3 {
+    opacity: 1;
+    margin-left: 0px;
+    z-index: 100;
+    transition-delay: .3s;
+  }
+
+  .content span {
+    display: block;
+    color: red;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 400
+  }
+
+  .content .title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0d0925;
+    margin-bottom: 20px;
+  }
+
+  .content .text {
+    color: #4e4a67;
+    font-size: 12px;
+    margin-bottom: 30px;
+    line-height: 1.5em;
+    text-align: justify;
+  }
+
+  .sliders {
+    position: absolute;
+    bottom: 25px;
+    left: 65%;
+    transform: translateX(-50%);
+    z-index: 12;
+  }
+
+  #imgTap:checked~.sliders {
+    display: none;
+  }
+
+  .sliders .tap {
+    position: relative;
+    height: 10px;
+    width: 50px;
+    background: #d9d9d9;
+    border-radius: 5px;
+    display: inline-flex;
+    margin: 0 3px;
+    cursor: pointer;
+  }
+
+  .sliders .tap:hover {
+    background: #cccccc;
+  }
+
+  .sliders .tap:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: -100%;
+    background: linear-gradient(147deg, #f6b323 0%, #f23b26 74%);
+    border-radius: 10px;
+    transform: scaleX(0);
+    transition: transform .6s;
+    transform-origin: left;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  #tap-1:checked~.sliders .tap-1:before,
+  #tap-2:checked~.sliders .tap-2:before,
+  #tap-3:checked~.sliders .tap-3:before {
+    transform: scaleX(1);
+    width: 100%;
+  }
+
+
+ 
+
+</style>
+
+<body>
+  <!-- Just an image -->
+  <div style="box-shadow: 0 0 13px rgba(0,0,0,.2);">
+    <div class="header bg-light ">
+      <div class="container" style="margin-top: 2px;">
+        <div class="row">
+          <div class="col-sm-4 ">
+
+            <a href="" class="btn btn-warning btn-sm "
+              style="font-weight: bold;  font-size: 14px;  font-size: 10px; border: 1px solid silver; color: brown; margin-bottom: 3px;">
+              English</a>
+
+          </div>
+          <div class="col-sm-4 ">
+            <a href="https://onlineexams.co/" style="font-weight: bold;  font-size: 14px; color: red;  ">Online Test</a>
+
+            <a href="" style="font-weight: bold;  font-size: 14px; margin-left: 30px; "> Enquiry</a>
+
+          </div>
+          <div class="col-sm-4">
+
+            <a href=""><i class="fa-brands fa-facebook fa-sm " style="color: #783030;"></i></a>
+            <a href="" style="margin-left: 10px;"><i class="fa-brands fa-instagram fa-sm"
+                style="color: #783030;"></i></a>
+            <a href="" style="margin-left: 10px;"><i class="fa-brands fa-google-plus fa-sm"
+                style="color: #783030;"></i></a>
+            <a href="" style="margin-left: 10px;"><i class="fa-brands fa-linkedin-in fa-sm"
+                style="color: #783030;"></i></a>
+            <a href="" style="margin-left: 10px;"><i class="fa-brands fa-twitter" style="color: #783030;"></i></a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container-fluid ">
+      <nav class="navbar navbar-expand-lg navbar-light  ">
+        <a class="navbar-brand" href="#"><img src="img/logo2.jpg" alt="" style="width: 200px; height: 50px; "></a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText" >
+          <ul class="navbar-nav ml-auto" id="ulid" >
+
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html"><span style="color: red;" > HOME </span></a>
+            </li>
+            <li class="nav-item active ">
+              <a class="nav-link" href="about.html"><span > ABOUT US </span></a>
+            </li>
+            <li class="nav-item active ">
+              <a class="nav-link" href="services.html"><span > SERVICES </span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="Achievements.html"><span >ACHIEVEMENTS  </span></a>
+            </li>
+         
+            <li class="nav-item active "> 
+              <a class="nav-link" href="gallery.html"><span > GALLERY</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="contact.html"><span > CONTACT US</span></a>
+            </li>
+           
+            
+
+            
+
+
+            
+          </ul>
+
+
+
+        </div>
+        <img src="img/AESPL.gif" alt="" style="width: 50px; height: 45px; border-radius: 50%;">
+      </nav>
+    </div>
+
+
+  </div>
+
+  <div class="header1">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+
+          <div class="row" style="position: absolute;">
+            <div class="col-sm-12">
+
+              <h3 style="font-weight: 600; font-size: 33px;">
+                <span style="color: #065A5E;"> WELCOME TO </span> <span style="color: #783030;"> DEFENCE CAREERS ACADEMY
+                </span>
+              </h3>
+
+            </div>
+            <br>
+            <div class="col-sm-12">
+
+              <p style="font-size: 20px; text-align: center;"> A Unit of Arun Educational Services Private Limited</p>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="col-sm-6">
+          <img src="img/header-3-shape.png" class="responsive" id="headerimg" alt=""  style="height: 400px; width: 100%;">
+        </div>
+      </div>
+
+    </div>
+    <div>
+
+
+    </div>
+
+    <div>
+
+    </div>
+  </div>
+
+  <div class="divclass" style="margin-top: 60px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3" style="margin-bottom: 50px;">
+          <div class="card">
+            <div class="text-center">
+              <img class="card-img-top" src="img/army pic.png" alt="Card image cap"
+                style="padding: 20px; width: 200px;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 20px; text-align: center; color: #065A5E;">Total Students</h5>
+              <p class="card-text text-center " style="color: #ff5421;     font-family:  sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+           
+            margin-bottom: 7px;">300k</p>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="text-center">
+              <img class="card-img-top" src="img/army pic.png" alt="Card image cap"
+                style="padding: 20px; width: 200px;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 20px; text-align: center; color: #065A5E;">Selected Students</h5>
+              <p class="card-text text-center " style="color: #ff5421;     font-family:  sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+           
+            margin-bottom: 7px;">143k</p>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="text-center">
+              <img class="card-img-top" src="img/army pic.png" alt="Card image cap"
+                style="padding: 20px; width: 200px;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 20px; text-align: center; color: #065A5E;">Total Batch</h5>
+              <p class="card-text text-center " style="color: #ff5421;     font-family:  sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+           
+            margin-bottom: 7px;">5</p>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="text-center">
+              <img class="card-img-top" src="img/army pic.png" alt="Card image cap"
+                style="padding: 20px; width: 200px;">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 20px; text-align: center; color: #065A5E;">Upcoming Batch</h5>
+              <p class="card-text text-center " style="color: #ff5421;     font-family:  sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+           
+            margin-bottom: 7px;">5</p>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+
+
+
+  <div class="header2 ">
+    <div class="container-fluid ">
+
+      <div class="row">
+        <div class="col-sm-12" style="padding: 20px; ">
+          <h2 style=" color: #ff5421  ; text-align: center;">
+            OUR SERVICES
+          </h2>
+          <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-5 text-center">
+
+
+              <img src="img/Defence Services-pic.gif" alt="" style="width: 200px;">
+            </div>
+
+            <div class="col-sm-7" style="margin-top: 5px; line-height: 25px; margin-bottom: 20px;">
+
+              Defence Careers Academy is a subsidiary of Arun Educational Services Private Limited (AESPL), which is
+              registered under company act 1956. The institute provides coaching for aspiring candidate to join Indian
+              Defence Services, and other forces like BSF, CRPF, SSB, ITBP, CISF, Assam rifles RPF, UP Police and Delhi
+              Police, and Railways. This academy also provides free of coast coaching to the wards of martyrs of defence
+              forces & other forces, who died during the operations on duty. There is a discount of 40% for the wards of
+              serving soldiers and retired ones. More over in order to uplift the less fortunate section of the society,
+              35% discount is offered for the BPL card holders/children.
+              <br>
+              <a href="" style="color:#ff5421  ;">Know More</a>
+
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <div class="header3 bg-light" style="margin-top: 50px;">
+
+    <p style="font-size: 32px; font-weight: 600; color:white;  margin-top: -410px; ">MANAGEMENT</p>
+    <div class="blog-card">
+      <input type="radio" name="select" id="tap-1" checked>
+      <input type="radio" name="select" id="tap-2">
+
+      <input type="checkbox" id="imgTap">
+      <div class="sliders">
+        <label for="tap-1" class="tap tap-1"></label>
+        <label for="tap-2" class="tap tap-2"></label>
+
+      </div>
+      <div class="inner-part">
+        <label for="imgTap" class="img">
+          <img class="img-1" src="img/RAJ KUMAR CHAUHAN.jpeg">
+        </label>
+        <div class="content content-1" style="margin-top: -40px;">
+
+          <span>FOUNDER and PATRON</span>
+          <div class="title">
+            Brigadier Raj Kumar Chauhan,VSM
+          </div>
+          <div class="text">
+            Brigadier Raj Kumar Chauhan is an Ex Jat Regiment officer of Indian Army. He has successfully commanded “4
+            Jat Regiment”, one Infantry Brigade and Sub Area. He has got extensive experience of Combat Administration
+            and Recruitment of officers & other Ranks. He has also served as an instructor at National Defence Academy,
+            Khadwasala. He has been awarded Vishist Sewa Medal by President of India, for his distinguish services.
+          </div>
+
+        </div>
+      </div>
+      <div class="inner-part">
+        <label for="imgTap" class="img">
+          <img class="img-2" src="img/MAJOR ARUN.jpeg">
+        </label>
+        <div class="content content-2">
+
+          <span>
+            FOUNDER, CHAIRMAN AND MANAGING DIRECTOR</span>
+          <div class="title">
+            Major Arun Kumar Singh
+          </div>
+          <div class="text">
+            Major Arun Kumar Singh ex Para EME officer and served and trained with Special Para commandoes of Indian
+            Armed Forces. He is M.Tech in computer science from IIT, one of the premier institutes of India. He is a
+            fellow member of Institution of Engineers. He has got vast experience in Human Resource Management and
+            technical Education. He has also cleared the course of Officers Group Testing. He has been awarded Staff
+            commendation card from Chief of the Army for displaying tremendous gallantry in Jammu & Kashmir, and has
+            been awarded for Technical Efficiency by Director General Research & Development of D.R.D.O.
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="container-fluid" style="margin-top: 40px; margin-bottom: 20px;">
+    <div class="container">
+      <section class="pt-5 pb-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <h3 class="mb-3" style="font-weight: 600; color: #f23b26;"> FACULTY </h3>
+            </div>
+            <div class="col-6 text-right">
+              <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+              </a>
+              <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+              </a>
+            </div>
+            <div class="col-12">
+              <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row">
+
+                      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card"
+                          style="  padding: 10px;
+                           height: 350px;
+                                        overflow: hidden;
+                                        position: relative;
+                                        border: 1px solid cadetblue;    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background-color:#f23b26;color: white; margin-top: 20px;">MLM Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card"
+                          style="padding: 10px;
+                            height: 350px;
+                                        overflow: hidden;
+                                        position: relative;
+                                        border: 1px solid cadetblue;   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background : #f23b26 ;color: white; margin-top: 22px;">Nidhi Cooperative
+                            Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card" style="padding: 10px;
+                         height: 350px;
+                                        overflow: hidden;
+                                        position: relative;
+                                        border: 1px solid cadetblue; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background-color:#f23b26;color: white; margin-top: 20px;">Microfinance Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card" style="padding: 10px;
+                                        overflow: hidden;
+                                        height: 350px;
+                                        position: relative;
+                                        border: 1px solid cadetblue; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background-color:#f23b26;color: white; margin-top: 20px;">Real Estate Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row">
+
+                      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card" style="padding: 10px;
+                                        overflow: hidden;
+                                        height: 350px;
+                                        position: relative;
+                                        
+                                        border: 1px solid cadetblue; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background-color:#f23b26;color: white; margin-top: 10px;">Real Estate Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card" style="padding: 10px;
+                                        overflow: hidden;
+                                        height: 350px;
+                                        position: relative;
+                                        border: 1px solid cadetblue; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background-color:#f23b26;color: white; margin-top: 10px;">Real Estate Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+
+                      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card" style="padding: 10px;
+                                        overflow: hidden;
+                                        height: 350px;
+                                        position: relative;
+                                        border: 1px solid cadetblue; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background-color:#f23b26;color: white; margin-top: 10px;">Real Estate Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+
+               <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card" style="padding: 10px;
+                                        overflow: hidden;
+                                        position: relative;
+                                        height: 350px;
+                                        border: 1px solid cadetblue; box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.49);">
+                          <h2 style="margin-left: 33px; margin-top: 20px;">
+                            <img class="img-fluid" id="hvimg" src="img/MAN LOGO.png" alt=""
+                              style="width: 180px;border-radius: 50%;   ">
+                          </h2>
+                          <p class="card-title text-center"
+                            style="background-color:#f23b26;color: white; margin-top: 10px;">Real Estate Software
+
+                          </p>
+                          <div class="card-text" style="margin-left: 12px;margin-right: 10px;">We provide best MLM
+                            Software has successfully delivered to multiple clients.
+
+                          </div>
+
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <footer class="secondary-bg dark-footer"
+  style="    background: #ff5421 !important; border-top: 5px solid #FF2400 !important;  background: url(img/footer.png),#192c12c8!important;">
+  
+  <div class="container " style="padding:5px; text-align: center; margin-top: 20px; ">
+      
+      <div class="row">
+          <div class="col-sm-12 ">
+
+              <ul style="list-style: none; display: inline-flex; ">
+
+                  <li> <a href="index.html" class="btn" style=" font-size: 15px; color: white; border:none;       font-weight: 500;
+
+    ">Home </a></li>
+                  <li><a href="about.html" class="btn" style=" font-size: 15px; color: white;         font-weight: 500;
+
+    ">About us</a></li>
+                  <li><a href="services.html" class="btn" style=" font-size: 15px; color: white;      font-weight: 500;
+
+    "> Services</a></li>
+                  <li><a href="Achievements.html" class="btn" style=" font-size: 15px; color: white;      font-weight: 500;
+
+    ">Achievements</a></li>
+                
+                  <li><a href="gallery.html" class="btn" style=" font-size: 15px; color: white;      font-weight: 500;
+
+    ">Gallery</a></li>
+                  <li><a href="contact.html" class="btn" style=" font-size: 15px; color: white;       font-weight: 500;
+
+    ">Contact us</a></li>
+
+
+              </ul>
+
+          </div>
+      </div>
+  </div>
+  <div class="container" style="margin-top: 30px;">
+
+      <div class="row">
+          <div class="col-sm-4">
+              <div class="col-sm-12">
+                  <h3><a href="job.html" style="color: white;font-size: 18px; ">Job@DCA</a></h3>
+
+              </div>
+              <div class="col-sm-12">
+                  <h3><a href="online.html" style="color: white;font-size: 18px; ">Online Application</a></h3>
+
+              </div>
+              <div class="col-sm-12">
+                  <h3><a href="Feedback.html" style="color: white;font-size: 18px; ">Feedback</a></h3>
+
+              </div>
+          </div>
+          <div class="col-sm-4">
+              <div>
+                  <p style="background-color: #fff; border-radius: 50%; width: 24px;"><i class="fa-solid fa-phone"
+                          style="margin-left: 5px;"></i></p>
+                  <p class="pclass" style="color: #fff; margin-left: 50px; margin-top: -40px;">
+
+                      Student Helpline :
+                      <br>
+                      <span style="font-size: 13px;">9235000000, 9005400000, 9453400000, 9235657654</span>
+                  </p>
+              </div>
+          </div>
+          <div class="col-sm-4">
+
+              <div>
+                  <p style="background-color: #fff; border-radius: 50%; width: 26px;"><i
+                          class="fa-solid fa-house fa-xs" style="margin-left: 6px;"></i></p>
+                  <p class="pclass" style="color: #fff; margin-left: 50px; margin-top: -40px;">
+                      Correspondence Address :
+                      <br>
+                      <span style="font-size: 13px;"> H-310, Indiralok, Krishna Nagar, Lucknow</span>
+                  </p>
+              </div>
+          </div>
+
+
+          <div class="col-sm-6">
+              <div class=" text-lift p-3" style="color: #fff; margin-top: 30px; font-size: 20px;">
+                  © 2023 Copyright:
+                  <a class="text-white" href="">cloudhub24.com</a>
+              </div>
+          </div>
+          <div class="col-sm-6">
+              <div class="text-right" style="margin-top: 30px;">
+                  <section class="mb-4">
+
+                      <a class="btn btn-outline-light btn-floating m-3"
+                          href="https://www.facebook.com/cloudhub24?mibextid=ZbWKwL" role="button"><i
+                              class="fab fa-facebook-f"></i></a>
+
+
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                              class="fab fa-twitter"></i></a>
+
+
+
+
+
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                              class="fab fa-instagram"></i></a>
+
+
+                      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                              class="fab fa-linkedin-in"></i></a>
+
+
+                  </section>
+              </div>
+          </div>
+      </div>
+
+  </div> 
+
+
+
+
+</footer>
+
+
+
+
+
+
+
+</body>
+
+</html>
